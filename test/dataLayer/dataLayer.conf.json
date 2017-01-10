@@ -1,0 +1,42 @@
+{
+    "baseUrl": "https://www.simoahava.com",
+    "basePath": "/",
+    "dataLayerName": "dataLayer",
+    "dataLayer": [{
+        "visitorLoginState": "logged-out"
+    },{
+        "event": "gtm.dom"
+    }],
+    "page": [{
+        "path": "/gtm-tips/10-useful-css-selectors/",
+        "dataLayer": [{
+            "@expect": "dataLayer to have basic article variables",
+            "pagePostType": "post",
+            "pageCategory": ["gtm-tips"]
+        },{
+            "@expect": "dataLayer to have article impressions",
+            "event": "impressionsPushed",
+            "ecommerce": {
+                "impressions": [],
+                "promoView": {}
+            }
+        },{
+            "@expect": "dataLayer to have clientId",
+            "event": "trackerReady"
+        },{
+            "@expect": "dataLayer to have product detail view",
+            "ecommerce": {
+                "detail": {
+                    "products": [{}]
+                }
+            },
+            "event": "productDetail"
+        }]
+    },{
+        "path": "/about-simo-ahava/",
+        "dataLayer": [{
+            "@expect": "dataLayer to have trackerReady event",
+            "event": "trackerReady"
+        }]
+    }]
+}

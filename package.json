@@ -1,0 +1,22 @@
+{
+  "name": "gtm-datalayer-test",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "./node_modules/.bin/wdio wdio.conf.js"
+  },
+  "author": "Simo Ahava",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-subset": "^1.4.0",
+    "wdio": "^0.3.3",
+    "wdio-jasmine-framework": "^0.2.19",
+    "wdio-mocha-framework": "^0.5.8",
+    "wdio-phantomjs-service": "^0.2.2",
+    "wdio-selenium-standalone-service": "0.0.7",
+    "wdio-spec-reporter": "0.0.5",
+    "webdriverio": "^4.6.1"
+  },
+  "dependencies": {}
+}
