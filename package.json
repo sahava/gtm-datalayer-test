@@ -8,6 +8,7 @@
   "author": "Simo Ahava",
   "license": "ISC",
   "devDependencies": {
+    "ajv": "^4.10.4",
     "chai": "^3.5.0",
     "chai-subset": "^1.4.0",
     "wdio": "^0.3.3",
