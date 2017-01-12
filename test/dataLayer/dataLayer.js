@@ -1,5 +1,5 @@
-const dataLayerConf = require('./dataLayer.conf.json');
-const dataLayerName = dataLayerConf.dataLayerName;
+const dataLayerConf = require('./dataLayer.conf.json')
+const dataLayerName = dataLayerConf.dataLayerName
 
 const getWindowDataLayer = () => browser
   .execute(function(dataLayerName) { return window[dataLayerName] }, dataLayerName)
@@ -20,7 +20,7 @@ describe('Testing Google Tag Manager\'s dataLayer composition on ' + dataLayerCo
             )
 
             it('expect dataLayer to have one gtm.js event', () => {
-                const objectsWithGtmJs = getWindowDataLayer().filter((o) => o.event === 'gtm.js')
+                const objectsWithGtmJs = getWindowDataLayer().filter(o => o.event === 'gtm.js')
                 expect(objectsWithGtmJs).to.have.lengthOf(1)
             })
 
