@@ -25,10 +25,10 @@ exports.config = {
         ui: 'bdd'
     },
     before: function() {
-        var chai = require('chai');
-        var chaiSubset = require('chai-subset');
-        chai.use(chaiSubset);
-        global.expect = chai.expect;
-        global.assert = chai.assert;
+        const chai = require('chai');
+        chai.use(require('chai-json-schema'))
+        chai.use(require('chai-subset'))
+        global.expect = chai.expect
+        global.assert = chai.assert
     }
-};
+}

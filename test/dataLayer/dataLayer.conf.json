@@ -3,40 +3,117 @@
     "basePath" : "/",
     "dataLayerName" : "dataLayer",
     "dataLayer" : [{
-        "visitorLoginState" : "logged-out"
+        "visitorLoginState" : {
+            "pattern" : "^logged-(in|out)$"
+        }
     },{
-        "event" : "gtm.dom"
+        "event": {
+            "pattern": "^gtm.js$"
+        }
+    },{
+        "event" : {
+            "pattern" : "^gtm.dom$"
+        }
+    },{
+        "event" : {
+            "pattern" : "^gtm.load$"
+        }
     }],
     "page" : [{
         "path" : "/gtm-tips/10-useful-css-selectors/",
         "dataLayer" : [{
             "@expect" : "dataLayer to have basic article variables",
-            "pagePostType" : "post",
-            "pageCategory" : ["gtm-tips"]
+            "pageAttributes" : {
+                "enum" : [["css-selectors", "google-tag-manager", "gtmtips"]]
+            },
+            "pageCategory" : {
+                "enum": [["gtm-tips"]]
+            },
+            "pagePostType" : {
+                "pattern" : "^post$"
+            },
+            "pagePostType2" : {
+                "pattern": "^single-post$"
+            },
+            "postCountOnPage" : {
+                "type" : "number"
+            },
+            "postCountTotal" : {
+                "type" : "number"
+            }
         },{
             "@expect" : "dataLayer to have article impressions",
-            "event" : "impressionsPushed",
+            "event" : {
+                "pattern": "^impressionsPushed$"
+            },
             "ecommerce" : {
-                "impressions" : [],
-                "promoView" : {}
+                "type" : "object",
+                "properties" : {
+                    "impressions" : {
+                        "type" : "array",
+                        "items" : [{
+                            "type" : "object",
+                            "properties" : {
+                                "id" : {
+                                    "type" : "string"
+                                },
+                                "name" : {
+                                    "type" : "string"
+                                }
+                            },
+                            "required" : ["name", "id"]
+                        }]
+                    },
+                    "promoView" : {
+                        "type" : "object"
+                    }
+                },
+                "required" : ["impressions", "promoView"]
             }
         },{
             "@expect" : "dataLayer to have clientId",
-            "event" : "trackerReady"
+            "event" : {
+                "pattern" : "^trackerReady$"
+            },
+            "cid" : {
+                "type" : "string",
+                "pattern" : "[0-9]+\\.[0-9]+"
+            }
         },{
             "@expect" : "dataLayer to have product detail view",
             "ecommerce" : {
-                "detail" : {
-                    "products" : [{}]
-                }
+                "type" : "object",
+                "properties" : {
+                    "detail" : {
+                        "type" : "object",
+                        "properties" : {
+                            "actionField" : {
+                                "type" : "object"
+                            },
+                            "products" : {
+                                "type": "array",
+                                "items": [{
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "string"
+                                        },
+                                        "name": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required" : ["id", "name"]
+                                }]
+                            }
+                        },
+                        "required" : ["products"]
+                    }
+                },
+                "required" : ["detail"]
             },
-            "event" : "productDetail"
-        }]
-    },{
-        "path" : "/about-simo-ahava/",
-        "dataLayer" : [{
-            "@expect" : "dataLayer to have trackerReady event",
-            "event" : "trackerReady"
+            "event" : {
+                "pattern" : "^productDetail$"
+            }
         }]
     }]
 }
