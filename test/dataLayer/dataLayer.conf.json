@@ -111,9 +111,9 @@
                 },
                 "required" : ["detail"]
             },
-            "event" : {
-                "rootRequired" : false,
-                "pattern" : "^productDetail$"
+            "doesNotExist" : {
+                "@rootRequired" : false,
+                "pattern" : "^someValue$"
             }
         }]
     }]
