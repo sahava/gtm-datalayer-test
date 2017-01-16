@@ -112,6 +112,7 @@
                 "required" : ["detail"]
             },
             "event" : {
+                "rootRequired" : false,
                 "pattern" : "^productDetail$"
             }
         }]
