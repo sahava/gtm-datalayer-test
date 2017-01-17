@@ -1,0 +1,80 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "type": "object",
+    "properties": {
+        "baseUrl": {
+            "type": "string",
+            "format": "uri"
+        },
+        "basePath": {
+            "type": "string",
+            "pattern": "^/"
+        },
+        "dataLayerName": {
+            "type": "string"
+        },
+        "dataLayer": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/dataLayer"
+            }
+        },
+        "page": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/page"
+            }
+        }
+    },
+    "required": [
+        "baseUrl",
+        "basePath"
+    ],
+    "definitions": {
+        "dataLayer": {
+            "type": "object",
+            "properties": {
+                "@expect": {
+                    "type": "string"
+                },
+                "@rootRequired": {
+                    "type": "boolean"
+                }
+            },
+            "additionalProperties": {
+                "allOf" : [
+                    {"$ref" : "http://json-schema.org/schema#"},
+                    {"$ref" : "#/definitions/rootRequired"}
+                ]
+            }
+        },
+        "page": {
+            "type": "object",
+            "properties": {
+                "path": {
+                    "type": "string",
+                    "pattern": "^/"
+                },
+                "dataLayer": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dataLayer"
+                    }
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "path",
+                "dataLayer"
+            ]
+        },
+        "rootRequired": {
+            "type" : "object",
+            "properties" : {
+                "@rootRequired" : {
+                    "type" : "boolean"
+                }
+            }
+        }
+    }
+}

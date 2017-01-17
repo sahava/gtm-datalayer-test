@@ -7,10 +7,6 @@
             "pattern" : "^logged-(in|out)$"
         }
     },{
-        "event": {
-            "pattern": "^gtm.js$"
-        }
-    },{
         "event" : {
             "pattern" : "^gtm.dom$"
         }

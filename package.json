@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "test": "./node_modules/.bin/wdio wdio.conf.js"
+    "spec": "./node_modules/.bin/wdio wdio.conf.js"
   },
   "main": "lib/testUtils.js",
   "author": "Simo Ahava",
   "license": "ISC",
   "devDependencies": {
+    "ajv": "^4.10.4",
     "chai": "^3.5.0",
     "chai-json-schema": "^1.4.0",
     "chai-subset": "^1.4.0",

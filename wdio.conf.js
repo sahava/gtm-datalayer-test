@@ -1,6 +1,6 @@
 exports.config = {
     specs: [
-        './test/dataLayer/**/*.js'
+        './spec/**/*.js'
     ],
     exclude: [
         // 'path/to/excluded/files'

@@ -4,6 +4,8 @@ const getJsonSchema = testUtils.getJsonSchema
 const dataLayerConf = require('./dataLayer.conf.json')
 const dataLayerName = dataLayerConf.dataLayerName || 'dataLayer'
 
+testUtils.validate(dataLayerConf)
+
 describe('Testing Google Tag Manager\'s dataLayer composition on ' + dataLayerConf.baseUrl, () => {
 
     context('with generic tests', () => {
@@ -11,7 +13,7 @@ describe('Testing Google Tag Manager\'s dataLayer composition on ' + dataLayerCo
         context('on page ' + dataLayerConf.basePath, () => {
 
             before(() =>
-              browser.url(dataLayerConf.baseUrl).waitForVisible('body', 5000)
+              browser.url(dataLayerConf.baseUrl + dataLayerConf.basePath).waitForVisible('body', 5000)
             )
 
             it('expect dataLayer to be an Array', () =>
