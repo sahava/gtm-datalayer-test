@@ -36,9 +36,6 @@
             "properties": {
                 "@expect": {
                     "type": "string"
-                },
-                "@rootRequired": {
-                    "type": "boolean"
                 }
             },
             "additionalProperties": {
