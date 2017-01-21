@@ -13,11 +13,11 @@ describe('Testing Google Tag Manager\'s dataLayer composition on ' + dataLayerCo
         context('on page ' + dataLayerConf.basePath, () => {
 
             before(() =>
-              browser.url(dataLayerConf.baseUrl + dataLayerConf.basePath).waitForVisible('body', 5000)
+                browser.url(dataLayerConf.baseUrl + dataLayerConf.basePath).waitForVisible('body', 5000)
             )
 
             it('expect dataLayer to be an Array', () =>
-              expect(getWindowDataLayer(dataLayerName)).to.be.an('Array')
+                expect(getWindowDataLayer(dataLayerName)).to.be.an('Array')
             )
 
             it('expect dataLayer to have one gtm.js event', () => {

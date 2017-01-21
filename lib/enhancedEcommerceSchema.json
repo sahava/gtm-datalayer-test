@@ -1,0 +1,276 @@
+{
+    "$schema" : "http://json-schema.org/schema#",
+    "type" : "object",
+    "properties" : {
+        "currencyCode": {
+            "type": "string"
+        }
+    },
+    "definitions" : {
+        "impressions" : {
+            "type" : "array",
+            "items" : {
+                "$ref" : "#/definitions/impressionFieldObject"
+            }
+        },
+        "click" : {
+            "type" : "object",
+            "properties" : {
+                "actionField" : {
+                    "$ref" : "#/definitions/actionFieldObject"
+                },
+                "products" : {
+                    "type" : "array",
+                    "items" : {
+                        "$ref" : "#/definitions/productFieldObject"
+                    }
+                }
+            }
+        },
+        "detail" : {
+            "type" : "object",
+            "properties" : {
+                "actionField" : {
+                    "$ref" : "#/definitions/actionFieldObject"
+                },
+                "products" : {
+                    "type" : "array",
+                    "items" : {
+                        "$ref" : "#/definitions/productFieldObject"
+                    }
+                }
+            }
+        },
+        "add" : {
+            "type" : "object",
+            "properties" : {
+                "actionField" : {
+                    "$ref" : "#/definitions/actionFieldObject"
+                },
+                "products" : {
+                    "type" : "array",
+                    "items" : {
+                        "$ref" : "#/definitions/productFieldObject"
+                    }
+                }
+            }
+        },
+        "remove" : {
+            "type" : "object",
+            "properties" : {
+                "actionField" : {
+                    "$ref" : "#/definitions/actionFieldObject"
+                },
+                "products" : {
+                    "type" : "array",
+                    "items" : {
+                        "$ref" : "#/definitions/productFieldObject"
+                    }
+                }
+            }
+        },
+        "promoView" : {
+            "type" : "object",
+            "properties" : {
+                "promotions" : {
+                    "type" : "array",
+                    "items" : {
+                        "$ref" : "#/definitions/promoFieldObject"
+                    }
+                }
+            }
+        },
+        "promoClick" : {
+            "type" : "object",
+            "properties" : {
+                "promotions" : {
+                    "type" : "array",
+                    "items" : {
+                        "$ref" : "#/definitions/promoFieldObject"
+                    }
+                }
+            }
+        },
+        "checkout" : {
+            "type" : "object",
+            "properties" : {
+                "actionField" : {
+                    "$ref" : "#/definitions/actionFieldObject"
+                },
+                "products" : {
+                    "type" : "array",
+                    "items" : {
+                        "$ref" : "#/definitions/productFieldObject"
+                    }
+                }
+            }
+        },
+        "checkout_option" : {
+            "type" : "object",
+            "properties" : {
+                "actionField" : {
+                    "$ref" : "#/definitions/actionFieldObject"
+                },
+                "products" : {
+                    "type" : "array",
+                    "items" : {
+                        "$ref" : "#/definitions/productFieldObject"
+                    }
+                }
+            }
+        },
+        "purchase" : {
+            "type" : "object",
+            "properties" : {
+                "actionField" : {
+                    "$ref" : "#/definitions/actionFieldObject"
+                },
+                "products" : {
+                    "type" : "array",
+                    "items" : {
+                        "$ref" : "#/definitions/productFieldObject"
+                    }
+                }
+            }
+        },
+        "refund" : {
+            "type" : "object",
+            "properties" : {
+                "actionField" : {
+                    "$ref" : "#/definitions/actionFieldObject"
+                },
+                "products" : {
+                    "type" : "array",
+                    "items" : {
+                        "$ref" : "#/definitions/productFieldObject"
+                    }
+                }
+            }
+        },
+        "impressionFieldObject" : {
+            "type" : "object",
+            "properties" : {
+                "name" : {
+                    "type" : "string"
+                },
+                "id" : {
+                    "type" : "string"
+                },
+                "price" : {
+                    "type" : "string"
+                },
+                "brand" : {
+                    "type" : "string"
+                },
+                "category" : {
+                    "type" : "string"
+                },
+                "variant" : {
+                    "type" : "string"
+                },
+                "list" : {
+                    "type" : "string"
+                },
+                "position" : {
+                    "type" : "number"
+                }
+            },
+            "anyOf" : [{
+                "required" : ["name"]
+            },{
+                "required" : ["id"]
+            }]
+        },
+        "productFieldObject" : {
+            "type" : "object",
+            "properties" : {
+                "name" : {
+                    "type" : "string"
+                },
+                "id" : {
+                    "type" : "string"
+                },
+                "price" : {
+                    "type" : "string"
+                },
+                "brand" : {
+                    "type" : "string"
+                },
+                "category" : {
+                    "type" : "string"
+                },
+                "variant" : {
+                    "type" : "string"
+                },
+                "quantity" : {
+                    "type" : "number"
+                },
+                "coupon" : {
+                    "type" : "string"
+                },
+                "position" : {
+                    "type" : "number"
+                }
+            },
+            "anyOf" : [{
+                "required" : ["name"]
+            },{
+                "required" : ["id"]
+            }]
+        },
+        "promoFieldObject" : {
+            "type" : "object",
+            "properties" : {
+                "id" : {
+                    "type" : "string"
+                },
+                "name" : {
+                    "type" : "string"
+                },
+                "creative" : {
+                    "type" : "string"
+                },
+                "position" : {
+                    "type" : "string"
+                }
+            },
+            "anyOf" : [{
+                "required" : ["name"]
+            },{
+                "required" : ["id"]
+            }]
+        },
+        "actionFieldObject" : {
+            "type" : "object",
+            "properties" : {
+                "id" : {
+                    "type" : "string"
+                },
+                "affiliation" : {
+                    "type" : "string"
+                },
+                "revenue" : {
+                    "type" : "string"
+                },
+                "tax" : {
+                    "type" : "string"
+                },
+                "shipping" : {
+                    "type" : "string"
+                },
+                "coupon" : {
+                    "type" : "string"
+                },
+                "list" : {
+                    "type" : "string"
+                },
+                "step" : {
+                    "type" : "number"
+                },
+                "option" : {
+                    "type" : "string"
+                }
+            }
+        }
+    }
+}

@@ -45,26 +45,11 @@
             "ecommerce" : {
                 "type" : "object",
                 "properties" : {
-                    "impressions" : {
-                        "type" : "array",
-                        "items" : [{
-                            "type" : "object",
-                            "properties" : {
-                                "id" : {
-                                    "type" : "string"
-                                },
-                                "name" : {
-                                    "type" : "string"
-                                }
-                            },
-                            "required" : ["name", "id"]
-                        }]
-                    },
-                    "promoView" : {
-                        "type" : "object"
+                    "impressions": {
+                        "$ref" : "/enhancedEcommerceSchema.json#/definitions/impressions"
                     }
                 },
-                "required" : ["impressions", "promoView"]
+                "required" : ["impressions"]
             }
         },{
             "@expect" : "dataLayer to have clientId",
@@ -81,35 +66,10 @@
                 "type" : "object",
                 "properties" : {
                     "detail" : {
-                        "type" : "object",
-                        "properties" : {
-                            "actionField" : {
-                                "type" : "object"
-                            },
-                            "products" : {
-                                "type": "array",
-                                "items": [{
-                                    "type": "object",
-                                    "properties": {
-                                        "id": {
-                                            "type": "string"
-                                        },
-                                        "name": {
-                                            "type": "string"
-                                        }
-                                    },
-                                    "required" : ["id", "name"]
-                                }]
-                            }
-                        },
-                        "required" : ["products"]
+                        "$ref" : "/enhancedEcommerceSchema.json#/definitions/detail"
                     }
                 },
                 "required" : ["detail"]
-            },
-            "doesNotExist" : {
-                "@rootRequired" : false,
-                "pattern" : "^someValue$"
             }
         }]
     }]

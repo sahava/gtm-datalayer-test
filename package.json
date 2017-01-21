@@ -14,7 +14,6 @@
     "chai-json-schema": "^1.4.0",
     "chai-subset": "^1.4.0",
     "wdio": "^0.3.3",
-    "wdio-jasmine-framework": "^0.2.19",
     "wdio-mocha-framework": "^0.5.8",
     "wdio-phantomjs-service": "^0.2.2",
     "wdio-selenium-standalone-service": "0.0.7",

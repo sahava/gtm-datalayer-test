@@ -1,3 +1,4 @@
+const enhancedEcommerceSchema = require('./lib/enhancedEcommerceSchema.json')
 exports.config = {
     specs: [
         './spec/**/*.js'
@@ -28,6 +29,7 @@ exports.config = {
         const chai = require('chai');
         chai.use(require('chai-json-schema'))
         chai.use(require('chai-subset'))
+        chai.tv4.addSchema('/enhancedEcommerceSchema.json', enhancedEcommerceSchema)
         global.expect = chai.expect
         global.assert = chai.assert
     }
