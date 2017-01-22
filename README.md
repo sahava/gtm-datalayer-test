@@ -29,9 +29,9 @@ You can use this script to quickly see how the solution works. Be sure to check 
 * [webdriverio](https://www.npmjs.com/package/webdriverio) for simplifying Selenium test writing and running
 
 ## How it works
-In `spec/dataLayer/dataLayer.conf.json` (see below), you specify both global key-value pairs as well as page-specific configurations. These dataLayer compositions will then be searched on every page (global configuration) as well as on specific pages (page-specific configurations).
+In `examples/spec/examples.conf.json` (see below), you specify both global key-value pairs as well as page-specific configurations. These dataLayer compositions will then be searched on every page (global configuration) as well as on specific pages (page-specific configurations).
 
-You can enforce the schema in `dataLayer.conf.json` using (a very slightly customized) **JSON Schema (v4)** to describe the objects in `window.dataLayer`, or you can use a simple **subset check**.
+You can enforce the schema in `examples.conf.json` using (a very slightly customized) **JSON Schema (v4)** to describe the objects in `window.dataLayer`, or you can use a simple **subset check**.
 
 ###JSON Schema
 You can describe the `window.dataLayer` objects using JSON Schema. Each object you add to the `dataLayer` property in the configuration (global or page-specific), will be compiled into its own schema, and this schema will then be checked against the global `window.dataLayer` structure. There are some slight modifications and hacks to accomodate for the fact that JSON Schema doesn't play that well with Arrays of indeterminate length and composition (such as `window.dataLayer` often is).
@@ -69,10 +69,10 @@ The second object uses the modified JSON Schema. It will validate if at least on
 The JSON Schema used for the test configuration must follow the structure described in this README. When you run the tests, the JSON configuration is first validated against its own schema (`/lib/validTestConfSchema.json`). If validation fails, the test is aborted.
 
 ## Customize tests
-The test is currently contained in `/spec/dataLayer/`. There are two files:
-* **dataLayer.conf.json** - the JSON schema that controls on which pages the test visits and what assertations are run against `dataLayer`
-* **dataLayer.js** - the actual test specification
-To customize the test, you should modify **dataLayer.conf.json**. Here's what it might look like:
+The test is currently contained in `/examples/spec/examples/`. There are two files:
+* **examples.conf.json** - the JSON schema that controls on which pages the test visits and what assertations are run against `dataLayer`
+* **examples.js** - the actual test specification
+To customize the test, you should modify **examples.conf.json**. Here's what it might look like:
 ```
 {
     "baseUrl" : "https://www.yourdomain.com",
