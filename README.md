@@ -4,10 +4,11 @@ Automated functional testing for Google Tag Manager's Data Layer.
 ## Installation
 1. Clone the repo with `git clone https://github.com/sahava/gtm-datalayer-test.git`
 2. Run `npm install` to install the dependencies
-3. Run `npm test` to run the script
+3. Run `npm test` to run the example script
 
 ## npm test
 The `npm test` script does the following:
+
 1. Starts a simple HTTP server on http://localhost:8080, with the `index.html` from ./examples.
 2. Runs the ./spec/dataLayer/dataLayer.js spec against the mock dataLayer in `index.html`
 3. Stops the HTTP server
