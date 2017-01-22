@@ -1,75 +1,40 @@
 {
-    "baseUrl" : "https://www.simoahava.com",
+    "baseUrl" : "http://localhost:8080",
     "basePath" : "/",
     "dataLayerName" : "dataLayer",
     "dataLayer" : [{
-        "visitorLoginState" : {
-            "pattern" : "^logged-(in|out)$"
-        }
-    },{
-        "event" : {
-            "pattern" : "^gtm.dom$"
-        }
-    },{
-        "event" : {
-            "pattern" : "^gtm.load$"
+        "pageType" : {
+            "type" : "string",
+            "enum" : ["article", "main", "other"]
+        },
+        "pageCategory" : {
+            "type" : "array",
+            "items" : {
+                "type" : "string",
+                "enum" : ["biography", "review", "editorial", "column"]
+            }
+        },
+        "user" : {
+            "type" : "object",
+            "properties" : {
+                "logged-in" : {
+                    "type" : "boolean"
+                }
+            }
         }
     }],
     "page" : [{
-        "path" : "/gtm-tips/10-useful-css-selectors/",
+        "path" : "/",
         "dataLayer" : [{
-            "@expect" : "dataLayer to have basic article variables",
-            "pageAttributes" : {
-                "enum" : [["css-selectors", "google-tag-manager", "gtmtips"]]
-            },
-            "pageCategory" : {
-                "enum": [["gtm-tips"]]
-            },
-            "pagePostType" : {
-                "pattern" : "^post$"
-            },
-            "pagePostType2" : {
-                "pattern": "^single-post$"
-            },
-            "postCountOnPage" : {
-                "type" : "number"
-            },
-            "postCountTotal" : {
-                "type" : "number"
-            }
-        },{
-            "@expect" : "dataLayer to have article impressions",
-            "event" : {
-                "pattern": "^impressionsPushed$"
-            },
+            "@expect" : "dataLayer to have Enhanced Ecommerce Purchase payload",
             "ecommerce" : {
                 "type" : "object",
                 "properties" : {
-                    "impressions": {
-                        "$ref" : "/enhancedEcommerceSchema.json#/definitions/impressions"
+                    "purchase" : {
+                        "$ref" : "/enhancedEcommerceSchema.json#/definitions/purchase"
                     }
                 },
-                "required" : ["impressions"]
-            }
-        },{
-            "@expect" : "dataLayer to have clientId",
-            "event" : {
-                "pattern" : "^trackerReady$"
-            },
-            "cid" : {
-                "type" : "string",
-                "pattern" : "[0-9]+\\.[0-9]+"
-            }
-        },{
-            "@expect" : "dataLayer to have product detail view",
-            "ecommerce" : {
-                "type" : "object",
-                "properties" : {
-                    "detail" : {
-                        "$ref" : "/enhancedEcommerceSchema.json#/definitions/detail"
-                    }
-                },
-                "required" : ["detail"]
+                "required" : ["purchase"]
             }
         }]
     }]

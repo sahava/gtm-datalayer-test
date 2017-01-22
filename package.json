@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "spec": "./node_modules/.bin/wdio wdio.conf.js"
+    "spec": "./node_modules/.bin/wdio wdio.conf.js",
+    "start" : "./node_modules/.bin/http-server ./examples",
+    "stop" : "pkill -f http-server",
+    "test" : "npm start & npm run spec -s && npm stop"
   },
   "main": "lib/testUtils.js",
   "author": "Simo Ahava",
@@ -13,6 +16,7 @@
     "chai": "^3.5.0",
     "chai-json-schema": "^1.4.0",
     "chai-subset": "^1.4.0",
+    "http-server": "^0.9.0",
     "wdio": "^0.3.3",
     "wdio-mocha-framework": "^0.5.8",
     "wdio-phantomjs-service": "^0.2.2",
