@@ -20,9 +20,13 @@ describe('Testing Google Tag Manager\'s dataLayer composition on ' + dataLayerCo
                 expect(getWindowDataLayer(dataLayerName)).to.be.an('Array')
             )
 
-            it('expect dataLayer to have one gtm.js event', () => {
+            it('expect dataLayer to have the gtm.js event', () => {
                 const objectsWithGtmJs = getWindowDataLayer(dataLayerName).filter(o => o.event === 'gtm.js')
-                expect(objectsWithGtmJs).to.have.lengthOf(1)
+                if (!dataLayerConf.multipleContainers) {
+                    assert.lengthOf(objectsWithGtmJs, 1, "dataLayer should have exactly one gtm.js event")
+                } else {
+                    assert.isAtLeast(objectsWithGtmJs.length, 1, "dataLayer should have at least one gtm.js event")
+                }
             })
 
             it('expect dataLayer to have globally defined keys', () => {
