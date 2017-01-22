@@ -1,7 +1,7 @@
 const enhancedEcommerceSchema = require('../lib/enhancedEcommerceSchema.json')
 exports.config = {
     specs: [
-        './examples/spec/examples.js'
+        './examples/spec/basic_example.js'
     ],
     maxInstances: 10,
     capabilities: [{

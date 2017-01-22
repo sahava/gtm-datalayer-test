@@ -10,7 +10,7 @@ Automated functional testing for Google Tag Manager's Data Layer.
 The `npm test` script does the following:
 
 1. Starts a simple HTTP server on http://localhost:8080, with the `index.html` from ./examples.
-2. Runs the ./examples/spec/examples.js spec against the mock dataLayer in `index.html`
+2. Runs the ./examples/spec/basic_example.js spec against the mock dataLayer in `index.html`
 3. Stops the HTTP server
 
 You can use this script to quickly see how the solution works. Be sure to check both dataLayer.js and dataLayer.conf.json to understand how the JSON validation works against the actual `window.dataLayer` object.
@@ -29,9 +29,9 @@ You can use this script to quickly see how the solution works. Be sure to check 
 * [webdriverio](https://www.npmjs.com/package/webdriverio) for simplifying Selenium test writing and running
 
 ## How it works
-In `examples/spec/examples.conf.json` (see below), you specify both global key-value pairs as well as page-specific configurations. These dataLayer compositions will then be searched on every page (global configuration) as well as on specific pages (page-specific configurations).
+In `examples/spec/basic_example.conf.json` (see below), you specify both global key-value pairs as well as page-specific configurations. These dataLayer compositions will then be searched on every page (global configuration) as well as on specific pages (page-specific configurations).
 
-You can enforce the schema in `examples.conf.json` using (a very slightly customized) **JSON Schema (v4)** to describe the objects in `window.dataLayer`, or you can use a simple **subset check**.
+You can enforce the schema in `basic_example.conf.json` using (a very slightly customized) **JSON Schema (v4)** to describe the objects in `window.dataLayer`, or you can use a simple **subset check**.
 
 ###JSON Schema
 You can describe the `window.dataLayer` objects using JSON Schema. Each object you add to the `dataLayer` property in the configuration (global or page-specific), will be compiled into its own schema, and this schema will then be checked against the global `window.dataLayer` structure. There are some slight modifications and hacks to accomodate for the fact that JSON Schema doesn't play that well with Arrays of indeterminate length and composition (such as `window.dataLayer` often is).
@@ -70,9 +70,9 @@ The JSON Schema used for the test configuration must follow the structure descri
 
 ## Customize tests
 The test is currently contained in `/examples/spec/`. There are two files:
-* **examples.conf.json** - the JSON schema that controls on which pages the test visits and what assertations are run against `dataLayer`
-* **examples.js** - the actual test specification
-To customize the test, you should modify **examples.conf.json**. Here's what it might look like:
+* **basic_example.conf.json** - the JSON schema that controls on which pages the test visits and what assertations are run against `dataLayer`
+* **basic_example.js** - the actual test specification
+To customize the test, you should modify **basic_example.conf.json**. Here's what it might look like:
 ```
 {
     "baseUrl" : "https://www.yourdomain.com",

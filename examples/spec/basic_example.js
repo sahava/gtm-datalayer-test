@@ -1,7 +1,7 @@
 const testUtils = require('../../lib/testUtils')
 const getWindowDataLayer = testUtils.getWindowDataLayer
 const getJsonSchema = testUtils.getJsonSchema
-const dataLayerConf = require('./examples.conf.json')
+const dataLayerConf = require('./basic_example.conf.json')
 const dataLayerName = dataLayerConf.dataLayerName || 'dataLayer'
 
 testUtils.validate(dataLayerConf)
