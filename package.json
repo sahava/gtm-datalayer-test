@@ -3,12 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "spec": "./node_modules/.bin/wdio wdio.conf.js",
-    "start" : "./node_modules/.bin/http-server ./examples -s",
-    "test" : "npm start & npm run spec -s || true",
+    "spec": "wdio ./lib/wdio.conf.js",
+    "examples": "wdio ./examples/examples.conf.js",
+    "start" : "http-server ./examples -s",
+    "test" : "npm start & npm run examples -s || true",
     "posttest" : "pkill -f http-server"
   },
-  "main": "lib/testUtils.js",
+  "bin" : {
+    "wdio" : "./node_modules/.bin/wdio",
+    "http-server" : "./node_modules/.bin/http-server"
+  },
+  "main": "./lib/testUtils.js",
   "author": "Simo Ahava",
   "license": "ISC",
   "devDependencies": {

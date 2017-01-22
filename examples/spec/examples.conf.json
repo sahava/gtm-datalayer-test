@@ -1,0 +1,41 @@
+{
+    "baseUrl" : "http://localhost:8080",
+    "basePath" : "/",
+    "dataLayerName" : "dataLayer",
+    "dataLayer" : [{
+        "pageType" : {
+            "type" : "string",
+            "enum" : ["article", "main", "other"]
+        },
+        "pageCategory" : {
+            "type" : "array",
+            "items" : {
+                "type" : "string",
+                "enum" : ["biography", "review", "editorial", "column"]
+            }
+        },
+        "user" : {
+            "type" : "object",
+            "properties" : {
+                "logged-in" : {
+                    "type" : "boolean"
+                }
+            }
+        }
+    }],
+    "page" : [{
+        "path" : "/",
+        "dataLayer" : [{
+            "@expect" : "dataLayer to have Enhanced Ecommerce Purchase payload",
+            "ecommerce" : {
+                "type" : "object",
+                "properties" : {
+                    "purchase" : {
+                        "$ref" : "/enhancedEcommerceSchema.json#/definitions/purchase"
+                    }
+                },
+                "required" : ["purchase"]
+            }
+        }]
+    }]
+}

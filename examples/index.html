@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <title>gtm-datalayer-test</title>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+	    pageType : 'article',
+        pageCategory : ['biography', 'review'],
+        user : {
+          loggedIn : false
+        }
+      },{
+        ecommerce : {
+          purchase : {
+            actionField : {
+              id : 'order-12345',
+              affiliation : 'Test store',
+              revenue : '10.99',
+              shipping : '2.00'
+            },
+            products : [{
+              id : 'shirt1',
+              name : 'Cheap Shirt',
+              brand : 'CHEAP',
+              variant : 'M',
+              price : '4.00',
+              quantity : 2
+            },{
+              id : 'sock1',
+              name : 'Black sock',
+              brand : 'SOCK',
+              price : '2.99',
+              quantity : 1
+            }]
+          }
+        },
+        event : 'transactionPushed'
+      },{
+        event : 'gtm.js'
+      });
+    </script>
+    <body>
+    <p>gtm-datalayer-test</p>
+    <pre id="contents"></pre>
+    <script>document.querySelector('#contents').innerHTML = JSON.stringify(window.dataLayer, null, 2);</script>
+    </body>
+  </head>
+</html>
+       
+      
