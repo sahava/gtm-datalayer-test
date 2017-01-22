@@ -10,7 +10,7 @@ Automated functional testing for Google Tag Manager's Data Layer.
 The `npm test` script does the following:
 
 1. Starts a simple HTTP server on http://localhost:8080, with the `index.html` from ./examples.
-2. Runs the ./spec/dataLayer/dataLayer.js spec against the mock dataLayer in `index.html`
+2. Runs the ./examples/spec/examples.js spec against the mock dataLayer in `index.html`
 3. Stops the HTTP server
 
 You can use this script to quickly see how the solution works. Be sure to check both dataLayer.js and dataLayer.conf.json to understand how the JSON validation works against the actual `window.dataLayer` object.
@@ -69,7 +69,7 @@ The second object uses the modified JSON Schema. It will validate if at least on
 The JSON Schema used for the test configuration must follow the structure described in this README. When you run the tests, the JSON configuration is first validated against its own schema (`/lib/validTestConfSchema.json`). If validation fails, the test is aborted.
 
 ## Customize tests
-The test is currently contained in `/examples/spec/examples/`. There are two files:
+The test is currently contained in `/examples/spec/`. There are two files:
 * **examples.conf.json** - the JSON schema that controls on which pages the test visits and what assertations are run against `dataLayer`
 * **examples.js** - the actual test specification
 To customize the test, you should modify **examples.conf.json**. Here's what it might look like:
