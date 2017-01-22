@@ -4,13 +4,22 @@ Automated functional testing for Google Tag Manager's Data Layer.
 ## Installation
 1. Clone the repo with `git clone https://github.com/sahava/gtm-datalayer-test.git`
 2. Run `npm install` to install the dependencies
-3. Run `npm run spec -s` to run the test examples (`-s` forces npm to suppress errors)
+3. Run `npm test` to run the script
+
+## npm test
+The `npm test` script does the following:
+1. Starts a simple HTTP server on http://localhost:8080, with the `index.html` from ./examples.
+2. Runs the ./spec/dataLayer/dataLayer.js spec against the mock dataLayer in `index.html`
+3. Stops the HTTP server
+
+You can use this script to quickly see how the solution works. Be sure to check both dataLayer.js and dataLayer.conf.json to understand how the JSON validation works against the actual `window.dataLayer` object.
 
 ## Technology
 * [ajv](https://www.npmjs.com/package/ajv) for validating the configuration JSON
 * [chai](https://www.npmjs.com/package/chai) for test assertions
 * [chai-json-schema](https://www.npmjs.com/package/chai-json-schema) for dataLayer JSON schema validation
 * [chai-subset](https://www.npmjs.com/package/chai-subset) for dataLayer subset validation
+* [http-server](https://www.npmjs.com/package/http-server) for testing the solution on localhost
 * [wdio](https://www.npmjs.com/package/wdio) for wrapping webdriverio
 * [wdio-mocha-framework](https://www.npmjs.com/package/wdio-mocha-framework) for using mocha as the test runner
 * [wdio-phantomjs-service](https://www.npmjs.com/package/chai) for using the headless phantomjs browser for tests
