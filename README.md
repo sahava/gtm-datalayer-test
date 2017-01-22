@@ -99,17 +99,18 @@ To customize the test, you should modify **dataLayer.conf.json**. Here's what it
 ```
 These are all the keys you can currently use:
 
-| Property | Description |
-| -------- | ----------- |
-| baseUrl (*required*)  | Base URL for tests, no trailing /. |
-| basePath (*required*)| Path for **global** dataLayer tests, remember the leading /. |
-| dataLayerName | The name of the global `window.dataLayer` Array. Make sure this matches what you've configured in the Google Tag Manager container snippet. It defaults to `dataLayer`. |
-| dataLayer | **Global dataLayer configuration**. An Array of objects that you expect to find on every page of the site. The objects can be incomplete, as only the named key-value pairs will be searched for. |
-| page | Array of **page-specific configurations**, where each object corresponds to a page you want to test. |
-| page.path (*required*) | Path of the page you want to test. |
-| page.dataLayer (*required*) | Array of objects, where each object is a single test run against `dataLayer`. Each object can have any number of key-value pairs, and only these key-value pairs are searched for (so the objects can be incomplete). The objects should correspond with what you expect to find in `dataLayer`. |
-| page.dataLayer[].@expect (*required*) | A description of the test. It will be shown in the test reporter output. |
-| (page.)dataLayer[].properties{}.key.@rootRequired | If set to **false** will make this root-level property optional, meaning the test will pass even if the key is not found in the global `dataLayer` structure. |
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| baseUrl (*required*) | URI | Base URL for tests, no trailing /. |
+| basePath (*required*)| String | Path for **global** dataLayer tests, remember the leading /. |
+| multipleContainers | Boolean | If **true** then multiple instances of 'gtm.js' event are permitted in dataLayer. |
+| dataLayerName | String | The name of the global `window.dataLayer` Array. Make sure this matches what you've configured in the Google Tag Manager container snippet. It defaults to `dataLayer`. |
+| dataLayer | Array | **Global dataLayer configuration**. An Array of objects that you expect to find on every page of the site. The objects can be incomplete, as only the named key-value pairs will be searched for. |
+| page | Array |  Array of **page-specific configurations**, where each object corresponds to a page you want to test. |
+| page.path (*required*) | String |  Path of the page you want to test. |
+| page.dataLayer (*required*) | Array | Array of objects, where each object is a single test run against `dataLayer`. Each object can have any number of key-value pairs, and only these key-value pairs are searched for (so the objects can be incomplete). The objects should correspond with what you expect to find in `dataLayer`. |
+| page.dataLayer[].@expect (*required*) | String | A description of the test. It will be shown in the test reporter output. |
+| (page.)dataLayer[].properties{}.key.@rootRequired | Boolean | If set to **false** will make this root-level property optional, meaning the test will pass even if the key is not found in the global `dataLayer` structure. |
 
 If you use the **JSON Schema** option (by default), everything within the `dataLayer` objects (global and page-specific) must conform to the latest draft of JSON Schema (http://json-schema.org/). The only exceptions are:
 * The root level of each `dataLayer` object is translated directly into properties of respective root level `window.dataLayer` objects. So instead of specifying the root level `dataLayer` objects in the configuration as complete JSON Schema objects, just list the properties as keys. Everything else (except for the other exceptions listed below) should be described using the regular JSON Schema specification.
