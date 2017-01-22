@@ -19,13 +19,13 @@
         "dataLayer": {
             "type": "array",
             "items": {
-                "$ref": "#/definitions/dataLayer"
+                "$ref": "#/definitions/dataLayerObject"
             }
         },
         "page": {
             "type": "array",
             "items": {
-                "$ref": "#/definitions/page"
+                "$ref": "#/definitions/pageObject"
             }
         }
     },
@@ -34,21 +34,38 @@
         "basePath"
     ],
     "definitions": {
-        "dataLayer": {
-            "type": "object",
-            "properties": {
-                "@expect": {
-                    "type": "string"
+        "dataLayerObject": {
+            "oneOf" : [{
+                "type" : "object",
+                "properties" : {
+                    "@expect" : {
+                        "type" : "string"
+                    },
+                    "@json" : {
+                        "enum" : [false]
+                    }
                 }
-            },
-            "additionalProperties": {
-                "allOf" : [
-                    {"$ref" : "http://json-schema.org/schema#"},
-                    {"$ref" : "#/definitions/rootRequired"}
-                ]
-            }
+            },{
+                "type" : "object",
+                "properties" : {
+                    "@expect" : {
+                        "type" : "string"
+                    }
+                },
+                "additionalProperties" : {
+                    "allOf" : [
+                        {"$ref" : "http://json-schema.org/schema#"},
+                        {"$ref" : "#/definitions/rootRequired"}
+                    ],
+                    "not" : {
+                        "@json" : {
+                            "enum" : [false]
+                        }
+                    }
+                }
+            }]
         },
-        "page": {
+        "pageObject": {
             "type": "object",
             "properties": {
                 "path": {
@@ -58,7 +75,7 @@
                 "dataLayer": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/dataLayer"
+                        "$ref": "#/definitions/dataLayerObject"
                     }
                 }
             },

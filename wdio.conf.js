@@ -3,9 +3,6 @@ exports.config = {
     specs: [
         './spec/**/*.js'
     ],
-    exclude: [
-        // 'path/to/excluded/files'
-    ],
     maxInstances: 10,
     capabilities: [{
         maxInstances: 5,
