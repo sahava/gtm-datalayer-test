@@ -49,7 +49,6 @@ Example:
 ```
 {
     "baseUrl" : "https://www.yourdomain.com",
-    "basePath" : "/",
     "dataLayerName" : "dataLayer",
     "dataLayer" : [{
         "@json" : false,
@@ -76,7 +75,6 @@ To customize the test, you should modify **basic_example.conf.json**. Here's wha
 ```
 {
     "baseUrl" : "https://www.yourdomain.com",
-    "basePath" : "/",
     "dataLayerName" : "dataLayer",
     "dataLayer" : [{
         "someVariable" : {
@@ -112,7 +110,6 @@ These are all the keys you can currently use:
 | Property | Type | Description |
 | -------- | ---- | ----------- |
 | baseUrl (*required*) | URI | Base URL for tests, no trailing /. |
-| basePath (*required*)| String | Path for **global** dataLayer tests, remember the leading /. |
 | multipleContainers | Boolean | If **true** then multiple instances of 'gtm.js' event are permitted in dataLayer. |
 | dataLayerName | String | The name of the global `window.dataLayer` Array. Make sure this matches what you've configured in the Google Tag Manager container snippet. It defaults to `dataLayer`. |
 | dataLayer | Array | **Global dataLayer configuration**. An Array of objects that you expect to find on every page of the site. The objects can be incomplete, as only the named key-value pairs will be searched for. |
