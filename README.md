@@ -13,7 +13,7 @@ The `npm test` script does the following:
 2. Runs the ./examples/spec/basic_example.js spec against the mock dataLayer in `index.html`
 3. Stops the HTTP server
 
-You can use this script to quickly see how the solution works. Be sure to check both dataLayer.js and dataLayer.conf.json to understand how the JSON validation works against the actual `window.dataLayer` object.
+You can use this script to quickly see how the solution works. Be sure to check both basic_example.js and basic_example.conf.json to understand how the JSON validation works against the actual `window.dataLayer` object.
 
 ## Technology
 * [ajv](https://www.npmjs.com/package/ajv) for validating the configuration JSON
