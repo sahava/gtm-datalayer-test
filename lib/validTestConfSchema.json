@@ -89,7 +89,7 @@
             "type" : "object",
             "properties" : {
                 "@rootRequired" : {
-                    "type" : "boolean"
+                    "enum" : [false]
                 }
             }
         }
