@@ -3,3 +3,6 @@ errorShots/
 node_modules/
 *.iml
 *.log
+spec/
+wdio.conf.js
+!examples/spec
