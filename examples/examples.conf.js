@@ -6,7 +6,8 @@ exports.config = {
     maxInstances: 10,
     capabilities: [{
         maxInstances: 5,
-        browserName: 'phantomjs'
+        browserName: 'phantomjs',
+        'phantomjs.binary.path': './node_modules/phantomjs-prebuilt/bin/phantomjs'
     }],
     sync: true,
     logLevel: 'silent',
