@@ -17,6 +17,12 @@ exports.config = {
     connectionRetryTimeout: 90000,
     connectionRetryCount: 3,
     services: ['selenium-standalone'],
+    seleniumInstallArgs: {
+        version: '3.0.1'
+    },
+    seleniumArgs: {
+        version: '3.0.1'
+    },
     framework: 'mocha',
     reporters: ['spec'],
     mochaOpts: {
