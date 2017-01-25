@@ -1,15 +1,20 @@
 # gtm-datalayer-test
 Automated functional testing for Google Tag Manager's Data Layer.
 
+## Requirements
+To install and run gtm-datalayer-test, you need the following clients / libraries:
+- [Node.js and npm](https://nodejs.org/en/)
+- [java](https://java.com/en/download/)
+- [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+
 ## Installation
 1. Clone the repo with `git clone https://github.com/sahava/gtm-datalayer-test.git`
 2. Run `cd gtm-datalayer-test`
-3. Run `npm install` to install the dependencies
+3. Run `npm install` to install the dependencies (run as **local** user, not root)
 4. Run `npm test` to run the example script
 
 ## Ubuntu 16.04 System Setup
-
-Before anything you need to install nodejs, java jre,git client and build-essentials tools.
+First you need to install Node.js, Java, JRE, git, and build-essentials tools.
 
 1. `sudo curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -`
 2. `sudo apt-get install -y nodejs`
