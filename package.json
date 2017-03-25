@@ -6,6 +6,7 @@
     "spec": "wdio ./examples/examples.conf.js",
     "start": "http-server ./examples -s",
     "test": "npm start & npm run spec -s || true",
+	"testwin": "start npm start & npm run spec -s || true",
     "posttest": "pkill -f http-server",
     "postinstall": "cd node_modules/wdio-spec-reporter/ && npm install"
   },

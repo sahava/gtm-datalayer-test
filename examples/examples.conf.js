@@ -1,4 +1,9 @@
 const enhancedEcommerceSchema = require('../lib/enhancedEcommerceSchema.json')
+const isWin = /^win/.test(process.platform);
+var phantomjsBinaryPath = './node_modules/.bin/phantomjs';
+if(isWin)
+	phantomjsBinaryPath = './node_modules/.bin/phantomjs.cmd';
+	
 exports.config = {
     specs: [
         './examples/spec/basic_example.js'
@@ -7,7 +12,7 @@ exports.config = {
     capabilities: [{
         maxInstances: 5,
         browserName: 'phantomjs',
-        'phantomjs.binary.path': './node_modules/phantomjs-prebuilt/bin/phantomjs'
+        'phantomjs.binary.path': phantomjsBinaryPath
     }],
     sync: true,
     logLevel: 'silent',
@@ -23,6 +28,7 @@ exports.config = {
     seleniumArgs: {
         version: '3.0.1'
     },
+	seleniumLogs: "sellogs/",
     framework: 'mocha',
     reporters: ['spec'],
     mochaOpts: {
