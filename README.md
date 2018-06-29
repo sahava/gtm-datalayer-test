@@ -48,10 +48,10 @@ In `examples/spec/basic_example.conf.json` (see below), you specify both global 
 
 You can enforce the schema in `basic_example.conf.json` using (a very slightly customized) **JSON Schema (v4)** to describe the objects in `window.dataLayer`, or you can use a simple **subset check**.
 
-###JSON Schema
+### JSON Schema
 You can describe the `window.dataLayer` objects using JSON Schema. Each object you add to the `dataLayer` property in the configuration (global or page-specific), will be compiled into its own schema, and this schema will then be checked against the global `window.dataLayer` structure. There are some slight modifications and hacks to accomodate for the fact that JSON Schema doesn't play that well with Arrays of indeterminate length and composition (such as `window.dataLayer` often is).
 
-##Subset check
+## Subset check
 You can also simply use a subset check, where you specify each `dataLayer` object (global or page-specific) with all the keys and values that you expect to find in `dataLayer`. Note that if you leave a key out, it is considered optional.
 
 To enable the **subset check**, you will need to add the key-value pair
